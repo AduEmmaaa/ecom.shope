@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Shope />} />
+          <Route path="/ecom.shope" element={<Shope />} />
           <Route
             path="/mens"
             element={<ShopeCategory banner={men_banner} category="men" />}
