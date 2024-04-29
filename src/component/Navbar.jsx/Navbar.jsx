@@ -1,11 +1,13 @@
 import "./Navbar.css";
 import logo from "../assets/logo.png";
 import cart from "../assets/cart_icon.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { ShopContext } from "../Context/ShopContext";
 
 const Navbar = () => {
   const [hr, sethr] = useState("Shop");
+  const {totalIteminCart} =useContext(ShopContext)
   return (
     <>
       <div className="navbar justify-around align-center">
@@ -19,39 +21,41 @@ const Navbar = () => {
               sethr("Shop");
             }}
           >
-            {" "}
-            <Link to="/">Shop</Link> {hr === "Shop" ? <hr /> : <></>}{" "}
+            <Link to="/ecom.shope">Shop</Link> {hr === "Shop" ? <hr /> : <></>}{" "}
           </li>
           <li
             onClick={() => {
               sethr("mens");
             }}
           >
-            <Link to="/mens">Men</Link> {hr === "mens" ? <hr /> : <></>}
+            <Link to="/ecom.shope/mens">Men</Link>{" "}
+            {hr === "mens" ? <hr /> : <></>}
           </li>
           <li
             onClick={() => {
               sethr("womens");
             }}
           >
-            <Link to="womens">Women</Link> {hr === "womens" ? <hr /> : <></>}
+            <Link to="/ecom.shope/womens">Women</Link>{" "}
+            {hr === "womens" ? <hr /> : <></>}
           </li>
           <li
             onClick={() => {
               sethr("kids");
             }}
           >
-            <Link to="/kids">Kids</Link> {hr === "kids" ? <hr /> : <></>}{" "}
+            <Link to="/ecom.shope/kids">Kids</Link>{" "}
+            {hr === "kids" ? <hr /> : <></>}{" "}
           </li>
         </ul>
         <div>
           <button className="btn1">
-            <Link to="/Login">Login</Link>
+            <Link to="/ecom.shope/Login">Login</Link>
           </button>
-          <Link to="/Cart">
+          <Link to="/ecom.shope/Cart">
             <img src={cart} alt="cart" />
           </Link>
-          <div className="cartnum">0</div>
+          <div className="cartnum">{totalIteminCart()}</div>
         </div>
       </div>
     </>

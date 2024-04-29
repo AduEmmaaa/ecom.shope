@@ -4,8 +4,7 @@ import "./item.css";
 const Item = (i) => {
   return (
     <div className="item ">
-      <Link to={`/product/${i.id}`}>
-        
+      <Link to={`/ecom.shope/product/${i.id}`}>
         <img onClick={window.scrollTo(0, 0)} src={i.image} alt="item" />
       </Link>
       <p>{i.name}</p>
